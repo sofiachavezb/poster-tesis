@@ -1,1 +1,16 @@
-Se utilizó un diseño experimental basado en el procesamiento de señales digitales (DSP). La muestra consistió en 500 bancos de voz procesados a través de la infraestructura del \textcolor{mikuDarkTurquoise}{\textbf{IMFD}}, aplicando una transformada rápida de Fourier (FFT) para el análisis de envolventes.
+\textbf{Plataforma:} DashAI: open-source, no code y extensible.
+\separador
+
+\textbf{Validación de } \textcolor{mikuPink}{\textbf{H1}} (software):
+\begin{itemize}
+	\item Réplica de 4 pipelines RAG utilizados en papers.
+	\item Cobertura de 6 dimensiones de configuración: modelo de encoding, función de ranking, Top K, estrategia de chunking, prompt y modelo generador (LLM)
+\end{itemize}
+
+\textbf{Métrica:} Capacidad de instanciar configuraciones publicadas
+\separador
+\textbf{Validación de }\textcolor{mikuPink}{\textbf{H2}} (usabilidad):\\
+Test de usuarios con System Usability Scale (SUS)
+Tareas reales: carga documentos, configura pipeline, interacción vía chat
+
+\textbf{Objetivo:} SUS ≥ 70 (estándar industrial)
