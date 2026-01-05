@@ -8,7 +8,8 @@
 \tcbuselibrary{skins}
 \usepackage[T1]{fontenc}
 \usepackage{soul}
-
+\usepackage{amssymb}  % Para símbolos matemáticos (checkmark, times)
+\usepackage{array}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -25,22 +26,22 @@
 
 \newcommand{\sizeHeaderW}{35.432} \newcommand{\sizeHeaderH}{6.13}
 \newcommand{\sizeTituloW}{31.32}  \newcommand{\sizeTituloH}{6.13}
-\newcommand{\sizeIntroW}{15.27}   \newcommand{\sizeIntroH}{10.58}
-\newcommand{\sizeResultW}{16.03}  \newcommand{\sizeResultH}{10.58}
-\newcommand{\sizeMetodoW}{10.11}  \newcommand{\sizeMetodoH}{9.88}
-\newcommand{\sizeGrafIW}{10.59}   \newcommand{\sizeGrafIH}{9.88}
+\newcommand{\sizeIntroW}{13.27}   \newcommand{\sizeIntroH}{10.58}
+\newcommand{\sizeResultW}{18.03}  \newcommand{\sizeResultH}{10.58}
+\newcommand{\sizeMetodoW}{9.61}  \newcommand{\sizeMetodoH}{9.88}
+\newcommand{\sizeGrafIW}{11.09}   \newcommand{\sizeGrafIH}{9.88}
 \newcommand{\sizeGrafIIW}{10.59}  \newcommand{\sizeGrafIIH}{9.88}
-\newcommand{\sizeOtrosIW}{10.11}  \newcommand{\sizeDiscH}{7.74} 
-\newcommand{\sizeOtrosIIW}{21.19} \newcommand{\sizeConclH}{7.74}
+\newcommand{\sizeOtrosIW}{10.11}  \newcommand{\sizeDiscH}{8.24} 
+\newcommand{\sizeOtrosIIW}{21.19} \newcommand{\sizeConclH}{8.24}
 \newcommand{\sizeFooterW}{4.51}   \newcommand{\sizeFooterH}{1.23}
 
 % --- MATRIZ DE COORDENADAS ---
 \newcommand{\posXHeader}{0}      \newcommand{\posYHeader}{0}
 \newcommand{\posXTitulo}{2.03}   \newcommand{\posYTitulo}{-7.28}
 \newcommand{\posXIntro}{2.05}    \newcommand{\posYIntro}{-14.45}
-\newcommand{\posXResult}{17.31}  \newcommand{\posYResult}{-14.45}
+\newcommand{\posXResult}{15.31}  \newcommand{\posYResult}{-14.45}
 \newcommand{\posXMetodo}{2.05}   \newcommand{\posYMetodo}{-25.03}
-\newcommand{\posXGrafI}{12.16}   \newcommand{\posYGrafI}{-25.03}
+\newcommand{\posXGrafI}{11.66}   \newcommand{\posYGrafI}{-25.03}
 \newcommand{\posXGrafII}{22.75}  \newcommand{\posYGrafII}{-25.03}
 \newcommand{\posXOtrosI}{2.05}   \newcommand{\posYOtrosI}{-34.91}
 \newcommand{\posXOtrosII}{12.16} \newcommand{\posYOtrosII}{-34.91}
@@ -49,14 +50,23 @@
 % Estética Global
 \newcommand{\cardRule}{4pt}        
 \newcommand{\cardArc}{35pt}
-\newcommand{\separador}{\\[0.3in]}
+\newcommand{\separador}{\vspace{0.3in}}
 
 % --- FUENTES ---
 \newcommand{\sizeTitulo}{\fontsize{85}{102}\bfseries\selectfont}
 \newcommand{\sizeAutora}{\fontsize{40}{48}\bfseries\selectfont}
 \newcommand{\sizeGuias}{\fontsize{40}{48}\selectfont}
 \newcommand{\sizeEncabezado}{\fontsize{36}{44}\selectfont}
-\newcommand{\sizeCuerpo}{\fontsize{24}{30}\selectfont}
+\newcommand{\sizeCuerpo}{\fontsize{24}{24}\selectfont}
+
+% --- COMANDOS DE EMOJIS PERSONALIZADOS ---
+\newcommand{\mikuok}{%
+	{\includegraphics[height=1.3em]{sections/miku_ok.png}}%
+}
+
+\newcommand{\mikufail}{%
+	{\includegraphics[height=1.2em]{sections/miku_fail.png}}%
+}
 
 % --- COMANDO DE CARD ---
 \newcommand{\mikuCard}[4]{%
@@ -79,6 +89,34 @@
 			title style={sharp corners=south}, 
 			top=0.6in, bottom=0.5in, left=0.5in, right=0.5in,
 			before upper={\sizeCuerpo\RaggedRight}
+			]
+			\input{#4}
+		\end{tcolorbox}
+	\end{minipage}
+}
+
+
+% --- COMANDO DE CARD GRÁFICA (sin margen interior) ---
+\newcommand{\mikuGraphicCard}[4]{%
+	\begin{minipage}[t][#2in]{#1in}
+		\begin{tcolorbox}[
+			enhanced,
+			boxrule=\cardRule,
+			colframe=mikuTurquoise,
+			colback=white,
+			arc=\cardArc,
+			width=#1in-0.3in, 
+			height=#2in-0.3in, 
+			colbacktitle=mikuDarkTurquoise,
+			coltitle=white,
+			fonttitle=\sizeEncabezado\bfseries,
+			title={#3},
+			halign title=center,
+			toptitle=0.3in,
+			bottomtitle=0.3in,
+			title style={sharp corners=south}, 
+			top=0.1in, bottom=0.1in, left=0.1in, right=0.1in,  % Márgenes mínimos
+			before upper={\centering}  % Centrar contenido en vez de justificar
 			]
 			\input{#4}
 		\end{tcolorbox}
@@ -137,13 +175,21 @@
 
 
 		% 3. Bloques de Contenido
+		
 		\node[anchor=north west] at (\posXIntro, \posYIntro)     {\mikuCard{\sizeIntroW}{\sizeIntroH}{Introducción}{sections/3a_introduccion}};
+		
 		\node[anchor=north west] at (\posXResult, \posYResult)   {\mikuCard{\sizeResultW}{\sizeResultH}{Resultados}{sections/3b_resultados}};
+		
+		%-----------------------------------------------------------------------%
 		\node[anchor=north west] at (\posXMetodo, \posYMetodo)   {\mikuCard{\sizeMetodoW}{\sizeMetodoH}{Metodología}{sections/4a_metodologia}};
-		\node[anchor=north west] at (\posXGrafI, \posYGrafI)     {\mikuCard{\sizeGrafIW}{\sizeGrafIH}{Gráficos u otros I}{sections/4b_graficos1}};
-		\node[anchor=north west] at (\posXGrafII, \posYGrafII)   {\mikuCard{\sizeGrafIIW}{\sizeGrafIIH}{Gráficos u otros II}{sections/4c_graficos2}};
-		\node[anchor=north west] at (\posXOtrosI, \posYOtrosI)   {\mikuCard{\sizeOtrosIW}{\sizeDiscH}{Libre}{sections/5a_libre1}};
-		\node[anchor=north west] at (\posXOtrosII, \posYOtrosII) {\mikuCard{\sizeOtrosIIW}{\sizeConclH}{Libre}{sections/5b_libre2}};
+		
+		\node[anchor=north west] at (\posXGrafI, \posYGrafI)     {\mikuGraphicCard{\sizeGrafIW}{\sizeGrafIH}{RAG de DashAI v/s alternativas}{sections/4b_graficos1}};
+		\node[anchor=north west] at (\posXGrafII, \posYGrafII)   {\mikuGraphicCard{\sizeGrafIIW}{\sizeGrafIIH}{Usabilidad del módulo de RAG}{sections/4c_graficos2}};
+		
+		%-----------------------------------------------------------------------%
+		\node[anchor=north west] at (\posXOtrosI, \posYOtrosI)   {\mikuCard{\sizeOtrosIW}{\sizeDiscH}{Contribución}{sections/5a_libre1}};
+		
+		\node[anchor=north west] at (\posXOtrosII, \posYOtrosII) {\mikuCard{\sizeOtrosIIW}{\sizeConclH}{DashAI RAG: Para la Comunidad}{sections/5b_libre2}};
 		
 		% 4. Footer
 		\node[anchor=north west] at (\posXFooter, \posYFooter) {

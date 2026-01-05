@@ -1,6 +1,22 @@
-\centering
-\fcolorbox{mikuTurquoise}{mikuLightGray}{
-	\vrule height 4in width 0pt \hspace{8in} 
-}
-\\[0.1in]
-\textcolor{mikuDarkTurquoise}{\textbf{Figura 1:}} Análisis de la respuesta en frecuencia del modelo optimizado vs. el modelo base.
+\vfill
+
+{\fontsize{24}{30}\selectfont
+	\renewcommand{\arraystretch}{1.7}
+	\begin{center}
+		\begin{tabular}{|p{0.4\linewidth}|c|c|c|c|}
+			\hline
+			\textbf{Característica} & \textbf{\shortstack{Notebook\\LM}} & \textbf{ChatGPT} & \textbf{\shortstack{Lang\\Chain}} & \textbf{DashAI} \\ \hline
+			Alojado en & \textbf{Cloud} & \textbf{Cloud} & \textbf{Local} & \textbf{Local} \\ \hline
+			Elección de LLM & \mikufail & \mikuok & \mikuok & \mikuok \\ \hline
+			Configuración LLM & \mikufail & \mikufail & \mikuok & \mikuok \\ \hline
+			Configuración prompt & \mikuok & \mikufail & \mikuok & \mikuok \\ \hline
+			Configuración chunking & \mikufail & \mikufail & \mikuok & \mikuok \\ \hline
+			Configuración encoding & \mikufail & \mikufail & \mikuok & \mikuok \\ \hline
+			Configuración ranking & \mikufail & \mikufail & \mikuok & \mikuok \\ \hline
+			Configuración Top K & \mikufail & \mikufail & \mikuok & \mikuok \\ \hline
+			No-code & \mikuok & \mikuok & \mikufail & \mikuok \\ \hline
+			Deploy con pip & \mikufail & \mikufail & \mikufail & \mikuok \\ \hline
+		\end{tabular}
+\end{center}}
+
+\vfill

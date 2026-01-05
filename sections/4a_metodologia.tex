@@ -1,16 +1,24 @@
-\textbf{Plataforma:} DashAI: open-source, no code y extensible.
+\textcolor{mikuPink}{\textbf{Plataforma}} \textbf{ DashAI}: open-source, no-code, extensible
+
 \separador
 
-\textbf{Validación de } \textcolor{mikuPink}{\textbf{H1}} (software):
+\textcolor{mikuPink}{\textbf{Diseño experimental}} en dos dimensiones:
+
+\separador
+
+\textcolor{mikuPink}{\textbf{H1}}: Evaluar la capacidad de abstracción del Software.
 \begin{itemize}
-	\item Réplica de 4 pipelines RAG utilizados en papers.
-	\item Cobertura de 6 dimensiones de configuración: modelo de encoding, función de ranking, Top K, estrategia de chunking, prompt y modelo generador (LLM)
+	\item Instanciar pipelines de RAG utilizados en 4 papers.
+	\item Control sobre 6 dimensiones configurables, con selección de modelos e hiperparámetros.
+	\item Métrica: Capacidad instanciación.
 \end{itemize}
 
-\textbf{Métrica:} Capacidad de instanciar configuraciones publicadas
 \separador
-\textbf{Validación de }\textcolor{mikuPink}{\textbf{H2}} (usabilidad):\\
-Test de usuarios con System Usability Scale (SUS)
-Tareas reales: carga documentos, configura pipeline, interacción vía chat
 
-\textbf{Objetivo:} SUS ≥ 70 (estándar industrial)
+\textcolor{mikuPink}{\textbf{H2}}: Medir la usabilidad mediante test de usuarios.
+\begin{itemize}
+	\item Con tareas reales.
+	\item 5 participantes (Nielsen: 85\% problemas)
+	\item Métrica: System Usability Scale (\textbf{SUS}).
+	\item Objetivo: SUS $\geq$ 70
+\end{itemize}
